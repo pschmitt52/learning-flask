@@ -9,8 +9,17 @@ class SignupForm(FlaskForm):
             validators=[DataRequired('Please enter your last name.')])
     email = StringField('Email', 
             validators=[DataRequired('Please enter your email address.'),
-                Email('Please enter your valid email address.')])
-    password = StringField('Password', 
+            Email('Please enter your valid email address.')])
+    password = PasswordField('Password', 
             validators=[DataRequired('Please enter your password.'), 
-                Length(min=6, message='Passwords must be >= 6 characters.')])
+            Length(min=6, message='Passwords must be >= 6 characters.')])
     submit = SubmitField('Sign up')
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', 
+            validators=[DataRequired('Please enter your email address.'),
+            Email('Please enter your valid email address.')])
+    password = PasswordField('Password', 
+            validators=[DataRequired('Please enter your password.')])
+    submit = SubmitField('Sign in')
+
